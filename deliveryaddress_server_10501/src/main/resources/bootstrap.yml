@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      name: deliveryaddress_server_10501
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://eurekaServer13000:13000/eureka,http://eurekaServer13002:13002/eureka"
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}

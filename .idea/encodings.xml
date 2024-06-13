@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/business_server_10300/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business_server_10300/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business_server_10301/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business_server_10301/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bvirtualwallet_server_10710/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bvirtualwallet_server_10710/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bvirtualwallet_server_10711/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bvirtualwallet_server_10711/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart_server_10400/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart_server_10400/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart_server_10401/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart_server_10401/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config_server_15000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config_server_15000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config_server_15001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config_server_15001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/credit_server_10800/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/credit_server_10800/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/credit_server_10801/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/credit_server_10801/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/deliveryaddress_server_10500/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/deliveryaddress_server_10500/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/deliveryaddress_server_10501/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/deliveryaddress_server_10501/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka_server_13000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka_server_13000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka_server_13002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka_server_13002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/food_server_10200/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/food_server_10200/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/food_server_10201/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/food_server_10201/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway_server_14000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway_server_14000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway_server_14001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway_server_14001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders_server_10600/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders_server_10600/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders_server_10601/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders_server_10601/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user_server_10100/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user_server_10100/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user_server_10103/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user_server_10103/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallet_server_10700/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallet_server_10700/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallet_server_10701/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallet_server_10701/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallettransaction_server_10900/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallettransaction_server_10900/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallettransaction_server_10901/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/virtualwallettransaction_server_10901/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

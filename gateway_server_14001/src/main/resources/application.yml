@@ -1,0 +1,62 @@
+server:
+  port: 14001
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      default-filters:
+        - name: CircuitBreaker
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+      routes:
+        - id: userServer
+          uri: lb://user-server
+          predicates:
+            - Path=/User/**
+
+        - id: foodServer
+          uri: lb://food-server
+          predicates:
+            - Path=/Food/**
+
+        - id: businessServer
+          uri: lb://business-server
+          predicates:
+            - Path=/Business/**
+
+        - id: cartServer
+          uri: lb://cart-server
+          predicates:
+            - Path=/Cart/**
+
+        - id: deliveryaddressServer
+          uri: lb://deliveryaddress-server
+          predicates:
+            - Path=/DeliveryAddress/**
+
+        - id: ordersServer
+          uri: lb://orders-server
+          predicates:
+            - Path=/Orders/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaServer13000:13000/eureka/,http://eurekaServer13002:13002/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15

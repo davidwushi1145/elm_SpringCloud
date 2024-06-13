@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="credit_server_10800" />
+        <module name="credit_server_10801" />
+        <module name="config_server_15001" />
+        <module name="user_server_10103" />
+        <module name="config_server_15000" />
+        <module name="user_server_10100" />
+        <module name="business_server_10301" />
+        <module name="virtualwallettransaction_server_10900" />
+        <module name="virtualwallettransaction_server_10901" />
+        <module name="business_server_10300" />
+        <module name="food_server_10200" />
+        <module name="eureka_server_13002" />
+        <module name="food_server_10201" />
+        <module name="eureka_server_13000" />
+        <module name="bvirtualwallet_server_10710" />
+        <module name="orders_server_10601" />
+        <module name="bvirtualwallet_server_10711" />
+        <module name="cart_server_10401" />
+        <module name="cart_server_10400" />
+        <module name="orders_server_10600" />
+        <module name="gateway_server_14000" />
+        <module name="virtualwallet_server_10700" />
+        <module name="gateway_server_14001" />
+        <module name="deliveryaddress_server_10500" />
+        <module name="deliveryaddress_server_10501" />
+        <module name="virtualwallet_server_10701" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

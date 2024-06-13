@@ -1,0 +1,13 @@
+package cn.wushi;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@MapperScan({"cn.wushi.mapper"})
+public class CartServer10401 {
+    public static void main(String[] args) {
+        SpringApplication.run(CartServer10401.class, args);
+    }
+}

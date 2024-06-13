@@ -1,0 +1,14 @@
+server:
+  port: 13002
+
+#eureka配置
+eureka:
+  instance:
+    hostname: "eurekaServer13002" #集群版写法
+  client:
+    register-with-eureka: false #是否将自己注册到eureka 服务当中（默认true）.
+    fetch-registry: false #是否启用从注册中心拉取服务列表的功能（默认true）.
+    service-url:
+      defaultZone: "http://eurekaServer13000:13000/eureka/"
+  server:
+    enable-self-preservation: false #关闭自我保护机制

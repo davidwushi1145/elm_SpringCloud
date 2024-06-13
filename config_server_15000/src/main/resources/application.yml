@@ -1,0 +1,31 @@
+server:
+  port: 15000
+
+spring:
+  application:
+    name: "config-server"
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/davidwushi/config-server.git
+          default-label: master
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://eurekaServer13000:13000/eureka,http://eurekaServer13002:13002/eureka"
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
