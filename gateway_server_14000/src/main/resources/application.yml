@@ -6,6 +6,10 @@ spring:
     name: gateway-server
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -25,7 +29,7 @@ spring:
         - id: userServer
           uri: lb://user-server
           predicates:
-            - Path=/User/**
+            - Path=/user/**
         - id: foodServer
           uri: lb://food-server
           predicates:
@@ -64,6 +68,8 @@ knife4j:
     discover:
       enabled: true
       version: openapi3
+      excluded-services:
+        - config-server
 
 logging:
   level:

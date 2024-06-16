@@ -14,9 +14,9 @@ springdoc:
     path: /swagger-ui.html
     tags-sorter: alpha
     operations-sorter: alpha
-    url: /DeliveryAddress/v3/api-docs
+    url: /v3/api-docs
   api-docs:
-    path: /DeliveryAddress/v3/api-docs
+    path: /v3/api-docs
   group-configs:
     - group: 'default'
       paths-to-match: '/**'
