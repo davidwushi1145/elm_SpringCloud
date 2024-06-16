@@ -13,7 +13,7 @@ public class UserDetailsServiceConfig {
     public UserDetailsService userDetailsService() {
         return new InMemoryUserDetailsManager(
                 User.withDefaultPasswordEncoder()
-                        .username("user")
+                        .username("userId")
                         .password("password")
                         .roles("USER")
                         .build());
