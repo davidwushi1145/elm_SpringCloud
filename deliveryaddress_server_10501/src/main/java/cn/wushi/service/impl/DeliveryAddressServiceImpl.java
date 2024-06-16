@@ -2,40 +2,88 @@ package cn.wushi.service.impl;
 
 import cn.wushi.mapper.DeliveryAddressMapper;
 import cn.wushi.po.DeliveryAddress;
+import cn.wushi.po.DeliveryAddressVo;
 import cn.wushi.service.DeliveryAddressService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 @Service
-public class DeliveryAddressServiceImpl implements DeliveryAddressService {//注意这里要有service的标签才能自动装盘
+public class DeliveryAddressServiceImpl implements DeliveryAddressService {
+
     @Autowired
     private DeliveryAddressMapper deliveryAddressMapper;
 
     @Override
-    public List<DeliveryAddress> listDeliveryAddressByUserId(String userId) {
-        return deliveryAddressMapper.listDeliveryAddressByUserId(userId);
+    public List<DeliveryAddressVo> listDeliveryAddressByUserId(String userId) {
+        try {
+            List<DeliveryAddress> deliveryAddressList = deliveryAddressMapper.listDeliveryAddressByUserId(userId);
+            return getDeliveryAddressVo(deliveryAddressList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
-    public DeliveryAddress getDeliveryAddressById(Integer daId) {
-        return deliveryAddressMapper.getDeliveryAddressById(daId);
+    public DeliveryAddressVo getDeliveryAddressById(Integer daId) {
+        try {
+            DeliveryAddress deliveryAddress = deliveryAddressMapper.getDeliveryAddressById(daId);
+            return getDeliveryAddressVo(deliveryAddress);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
-    public int saveDeliveryAddress(DeliveryAddress deliveryAddress) {
-        return deliveryAddressMapper.saveDeliveryAddress(deliveryAddress);
+    public int saveDeliveryAddress(String userId, String contactName, Integer contactSex, String contactTel, String address) {
+        try {
+            return deliveryAddressMapper.saveDeliveryAddress(userId, contactName, contactSex, contactTel, address);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+
     @Override
-    public int updateDeliveryAddress(DeliveryAddress deliveryAddress) {
-        return deliveryAddressMapper.updateDeliveryAddress(deliveryAddress);
+    public int updateDeliveryAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address) {
+        try {
+            return deliveryAddressMapper.updateDeliveryAddress(daId, contactName, contactSex, contactTel, address);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public int removeDeliveryAddress(Integer daId) {
-        return deliveryAddressMapper.removeDeliveryAddress(daId);
+        try {
+            return deliveryAddressMapper.removeDeliveryAddress(daId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public DeliveryAddressVo getDeliveryAddressVo(DeliveryAddress deliveryAddress) {
+        if (deliveryAddress == null) {
+            return null;
+        }
+        DeliveryAddressVo deliveryAddressVo = new DeliveryAddressVo();
+        BeanUtils.copyProperties(deliveryAddress, deliveryAddressVo);
+        return deliveryAddressVo;
+    }
+
+
+    public List<DeliveryAddressVo> getDeliveryAddressVo(List<DeliveryAddress> deliveryAddressList) {
+        if (CollectionUtils.isEmpty(deliveryAddressList)) {
+            return new ArrayList<>();
+        }
+        return deliveryAddressList.stream().map(this::getDeliveryAddressVo).collect(Collectors.toList());
     }
 }

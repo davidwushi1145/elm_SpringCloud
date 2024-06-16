@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.wushi.mapper.OrdersMapper">
+
     <resultMap type="Orders" id="ordersResultMap">
         <id column="orderId" property="orderId"/>
         <result column="userId" property="userId"/>
@@ -17,15 +18,12 @@
                     select="cn.wushi.mapper.OrderDetailetMapper.listOrderDetailetByOrderId"
                     column="orderId"/>
     </resultMap>
+
     <select id="getOrdersById" parameterType="Integer" resultMap="ordersResultMap">
         select *
         from orders
         where orderId = #{orderId}
     </select>
-    <select id="listOrdersByUserId" parameterType="String" resultMap="ordersResultMap">
-        select *
-        from orders
-        where userId = #{userId}
-        order by orderId
-    </select>
+
+
 </mapper>

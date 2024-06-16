@@ -1,9 +1,8 @@
 package cn.wushi.service;
 
-import cn.wushi.po.Food;
-
+import cn.wushi.po.FoodVo;
 import java.util.List;
 
 public interface FoodService {
-    public List<Food> listFoodByBusinessId(Integer businessId);
+    public List<FoodVo> listFoodByBusinessId(Integer businessId);
 }

@@ -33,23 +33,23 @@ spring:
         - id: foodServer
           uri: lb://food-server
           predicates:
-            - Path=/Food/**
+            - Path=/food/**
         - id: businessServer
           uri: lb://business-server
           predicates:
-            - Path=/Business/**
+            - Path=/business/**
         - id: cartServer
           uri: lb://cart-server
           predicates:
-            - Path=/Cart/**
-        - id: deliveryaddressServer
-          uri: lb://deliveryaddress-server
+            - Path=/cart/**
+        - id: deliveryAddressServer
+          uri: lb://deliveryAddress-server
           predicates:
-            - Path=/DeliveryAddress/**
+            - Path=/deliveryAddress/**
         - id: ordersServer
           uri: lb://orders-server
           predicates:
-            - Path=/Orders/**
+            - Path=/orders/**
 
 eureka:
   client:

@@ -13,18 +13,20 @@
         <association property="business" javaType="Business"
                      select="cn.wushi.mapper.BusinessMapper.getBusinessById"
                      column="businessId"/>
-    </resultMap>
 
+    </resultMap>
     <select id="listCart" parameterType="Cart" resultMap="cartResultMap">
         select * from cart
         <where>
             userId=#{userId}
             <if test="businessId!=null and businessId!=''">
                 and businessId=#{businessId}
+
             </if>
         </where>
         order by cartId
     </select>
+
     <delete id="removeCart" parameterType="Cart">
         delete from cart
         <where>

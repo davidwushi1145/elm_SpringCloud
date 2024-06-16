@@ -1,86 +1,29 @@
 package cn.wushi.po;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 
+@Data
 public class Business {
+    @TableId
     private Integer businessId;
     private String businessName;
     private String businessAddress;
     private String businessExplain;
     private String businessImg;
     private Integer orderTypeId;
-    private double starPrice; //起送费
-    private double deliveryPrice; //配送费
+    private double starPrice; // 起送费
+    private double deliveryPrice; // 配送费
     private String remarks;
+    private int orderQuantity; // 订单数量
 
-    public Integer getBusinessId() {
-        return businessId;
-    }
-
-    public void setBusinessId(Integer businessId) {
-        this.businessId = businessId;
-    }
-
-    public String getBusinessName() {
-        return businessName;
-    }
-
-    public void setBusinessName(String businessName) {
-        this.businessName = businessName;
-    }
-
-    public String getBusinessAddress() {
-        return businessAddress;
-    }
-
-    public void setBusinessAddress(String businessAddress) {
-        this.businessAddress = businessAddress;
-    }
-
-    public String getBusinessExplain() {
-        return businessExplain;
-    }
-
-    public void setBusinessExplain(String businessExplain) {
-        this.businessExplain = businessExplain;
-    }
-
-    public String getBusinessImg() {
-        return businessImg;
-    }
-
-    public void setBusinessImg(String businessImg) {
-        this.businessImg = businessImg;
-    }
-
-    public Integer getOrderTypeId() {
-        return orderTypeId;
-    }
-
-    public void setOrderTypeId(Integer orderTypeId) {
-        this.orderTypeId = orderTypeId;
-    }
-
-    public double getStarPrice() {
-        return starPrice;
-    }
-
-    public void setStarPrice(double starPrice) {
-        this.starPrice = starPrice;
-    }
-
-    public double getDeliveryPrice() {
-        return deliveryPrice;
-    }
-
-    public void setDeliveryPrice(double deliveryPrice) {
-        this.deliveryPrice = deliveryPrice;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    @Override
+    public String toString() {
+        return "\n商家编号：" + this.businessId +
+                "\n商家名称：" + this.businessName +
+                "\n商家地址：" + this.businessAddress +
+                "\n商家介绍：" + this.businessExplain +
+                "\n起送费：" + this.starPrice +
+                "\n配送费：" + this.deliveryPrice;
     }
 }

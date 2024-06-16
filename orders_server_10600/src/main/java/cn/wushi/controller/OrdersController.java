@@ -1,38 +1,112 @@
 package cn.wushi.controller;
 
-import cn.wushi.po.CommonResult;
-import cn.wushi.po.Orders;
+import cn.wushi.common.BaseResponse;
+import cn.wushi.common.ErrorCode;
+import cn.wushi.common.ResultUtils;
+import cn.wushi.common.UserSupport;
+import cn.wushi.exception.BusinessException;
+import cn.wushi.po.OrderDetailet;
+import cn.wushi.po.OrdersVo;
 import cn.wushi.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@RefreshScope
 @RestController
-@RequestMapping("/Orders")
+@RequestMapping("/orders")
 public class OrdersController {
     @Autowired
-
     private OrdersService ordersService;
-
-    @PostMapping("/OrdersId")
-    public CommonResult<Integer> createOrders(Orders orders) throws Exception {
-        return new CommonResult<>(200, "success", ordersService.createOrders(orders));
+    @Autowired
+    private UserSupport userSupport;
+    @GetMapping("/{orderId}")
+    public BaseResponse<OrdersVo> getOrdersById(@PathVariable(value = "orderId") Integer orderId) {
+        if (orderId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
+        }
+        OrdersVo ordersVo = ordersService.getOrdersById(orderId);
+        if (ordersVo != null) {
+            return ResultUtils.success(ordersVo);
+        } else {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，获取订单失败");
+        }
     }
 
-    @GetMapping("/OrdersId")
-    public CommonResult<Orders> getOrderById(Orders orders) throws Exception {
-        return new CommonResult<>(200, "success", ordersService.getOrdersById(orders.getOrderId()));
+    @GetMapping("/lists")
+    public BaseResponse<List<OrdersVo>> listOrdersByUserId(@RequestParam("page") int page, @RequestParam("size") int size) {
+        String userId = userSupport.getCurrentUserId();
+        if (userId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
+        }
+        List<OrdersVo> ordersVoList = ordersService.listOrdersByUserId(userId, page, size);
+        System.out.println(page+"s"+size);
+        System.out.println(ordersVoList.size());
+        if (ordersVoList != null) {
+            return ResultUtils.success(ordersVoList);
+        } else {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，获取用户订单列表失败");
+        }
     }
 
-    @GetMapping("/UserId")
-    public CommonResult<List> listOrdersByUserId(Orders orders) throws Exception {
-        return new CommonResult<>(200, "success", ordersService.listOrdersByUserId(orders.getUserId()));
+    @GetMapping("/listsDetailet")
+    public BaseResponse<List<OrderDetailet>> listOrderDetailetByOrderId(@RequestParam("orderId") Integer orderId) {
+        if (orderId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
+        }
+        List<OrderDetailet> ordersDList = ordersService.listOrderDetailetByOrderId(orderId);
+        if (ordersDList != null) {
+            return ResultUtils.success(ordersDList);
+        } else {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，获取用户订单列表失败");
+        }
+    }
+
+    @PostMapping("/newOrders")
+    public BaseResponse<Integer> createOrders(@RequestParam("businessId") Integer businessId,
+                                              @RequestParam("daId") Integer daId,
+                                              @RequestParam("orderTotal") Double orderTotal) {
+        String userId = userSupport.getCurrentUserId();
+        if (userId == null || businessId == null || daId == null || orderTotal == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
+        }
+        if (orderTotal < 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "订单总支付价格不能小于零");
+        }
+        Integer result = ordersService.createOrders(userId, businessId, daId, orderTotal);
+        if (result!=null) {
+            return ResultUtils.success(result);
+        } else {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，新增订单失败");
+        }
+    }
+
+    @PostMapping("/newStates")
+    public BaseResponse<Integer> updateOrder(@RequestParam("orderId") Integer orderId, @RequestParam("orderState") Integer orderState) {
+        if (orderId == null || orderState == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
+        }
+        Integer result = ordersService.updateOrder(orderId, orderState);
+        if (result.equals(1)) {
+            return ResultUtils.success(result);
+        } else {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，更新订单支付状态失败");
+        }
+    }
+
+    @PostMapping("/newTotals")
+    public BaseResponse<Integer> updateOrders(@RequestParam("orderId") Integer orderId, @RequestParam("orderTotal") Double orderTotal) {
+        if (orderId == null || orderTotal == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
+        }
+        if (orderTotal < 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "订单总支付价格不能小于零");
+        }
+        Integer result = ordersService.updateOrders(orderId, orderTotal);
+        if (result.equals(1)) {
+            return ResultUtils.success(result);
+        } else {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，更新订单支付价格（因为更新了积分使用）失败");
+        }
     }
 }
