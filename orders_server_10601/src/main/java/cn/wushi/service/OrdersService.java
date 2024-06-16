@@ -16,5 +16,5 @@ public interface OrdersService {
 
     public int updateOrders(Integer orderId, Double orderTotal);
 
-    public List<OrderDetailet>listOrderDetailetByOrderId(Integer orderId);
+    public List<OrderDetailet> listOrderDetailetByOrderId(Integer orderId);
 }

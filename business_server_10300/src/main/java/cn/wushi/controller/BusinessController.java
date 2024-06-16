@@ -3,9 +3,9 @@ package cn.wushi.controller;
 import cn.wushi.common.BaseResponse;
 import cn.wushi.common.ErrorCode;
 import cn.wushi.common.ResultUtils;
+import cn.wushi.exception.BusinessException;
 import cn.wushi.po.BusinessVo;
 import cn.wushi.service.BusinessService;
-import cn.wushi.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,6 +56,7 @@ public class BusinessController {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，获取商家列表失败");
         }
     }
+
     @GetMapping("/businessNameLists/{businessName}")
     public BaseResponse<List<BusinessVo>> listBusinessByBusinessName(@PathVariable(value = "businessName", required = false) String businessName) {
         // 此处传入的Name参数可以为空

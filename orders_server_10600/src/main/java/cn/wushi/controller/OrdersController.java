@@ -20,6 +20,7 @@ public class OrdersController {
     private OrdersService ordersService;
     @Autowired
     private UserSupport userSupport;
+
     @GetMapping("/{orderId}")
     public BaseResponse<OrdersVo> getOrdersById(@PathVariable(value = "orderId") Integer orderId) {
         if (orderId == null) {
@@ -40,7 +41,7 @@ public class OrdersController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不可为空");
         }
         List<OrdersVo> ordersVoList = ordersService.listOrdersByUserId(userId, page, size);
-        System.out.println(page+"s"+size);
+        System.out.println(page + "s" + size);
         System.out.println(ordersVoList.size());
         if (ordersVoList != null) {
             return ResultUtils.success(ordersVoList);
@@ -74,7 +75,7 @@ public class OrdersController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "订单总支付价格不能小于零");
         }
         Integer result = ordersService.createOrders(userId, businessId, daId, orderTotal);
-        if (result!=null) {
+        if (result != null) {
             return ResultUtils.success(result);
         } else {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据库操作失败，新增订单失败");

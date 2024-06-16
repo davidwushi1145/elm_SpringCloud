@@ -1,14 +1,14 @@
 package cn.wushi.mapper;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import cn.wushi.po.Cart;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.sql.SQLException;
+import java.util.List;
 
 @Mapper
 public interface CartMapper extends BaseMapper<Cart> {
@@ -19,6 +19,7 @@ public interface CartMapper extends BaseMapper<Cart> {
 
     @Select("select * from cart where foodId=#{foodId} and businessId=#{businessId} and userId=#{userId}")
     public Cart getCartById(Integer foodId, Integer businessId, String userId) throws SQLException;
+
     @Update("update cart set quantity=#{quantity} where foodId=#{foodId} and businessId=#{businessId} and userId=#{userId}")
     public int updateCart(Integer businessId, Integer foodId, String userId, Integer quantity) throws SQLException;
 

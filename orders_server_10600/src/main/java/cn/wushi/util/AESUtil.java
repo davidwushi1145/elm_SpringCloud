@@ -11,10 +11,9 @@ import java.security.SecureRandom;
 public class AESUtil {
 
     private static final String KEY_ALGORITHM = "AES";
-    private static AESUtil instance;
     private static final int SEED_LENGTH = 16; // 定义种子字符串的长度
     private static final char[] HEX_CHAR = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
+    private static AESUtil instance;
     private final Cipher decryptCipher;
     private final Cipher encryptCipher;
     private final String seed;
@@ -26,18 +25,12 @@ public class AESUtil {
         decryptCipher.init(Cipher.DECRYPT_MODE, this.getSecretKey());
         encryptCipher.init(Cipher.ENCRYPT_MODE, this.getSecretKey());
     }
+
     public static synchronized AESUtil getInstance() throws Exception {
         if (instance == null) {
             instance = new AESUtil();
         }
         return instance;
-    }
-
-    private String generateSeed(int length) {
-        SecureRandom random = new SecureRandom();
-        byte[] bytes = new byte[length];
-        random.nextBytes(bytes);
-        return bytesToHex(bytes);
     }
 
     private static String bytesToHex(byte[] bytes) {
@@ -48,6 +41,13 @@ public class AESUtil {
             hexChars[i * 2 + 1] = HEX_CHAR[v & 0x0F];
         }
         return new String(hexChars);
+    }
+
+    private String generateSeed(int length) {
+        SecureRandom random = new SecureRandom();
+        byte[] bytes = new byte[length];
+        random.nextBytes(bytes);
+        return bytesToHex(bytes);
     }
 
     public String decrypt(String content) throws Exception {

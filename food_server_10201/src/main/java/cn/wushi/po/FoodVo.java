@@ -1,4 +1,5 @@
 package cn.wushi.po;
+
 import lombok.Data;
 
 @Data

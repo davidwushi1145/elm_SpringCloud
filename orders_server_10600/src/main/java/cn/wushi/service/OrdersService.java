@@ -2,6 +2,7 @@ package cn.wushi.service;
 
 import cn.wushi.po.OrderDetailet;
 import cn.wushi.po.OrdersVo;
+
 import java.util.List;
 
 public interface OrdersService {
@@ -15,5 +16,5 @@ public interface OrdersService {
 
     public int updateOrders(Integer orderId, Double orderTotal);
 
-    public List<OrderDetailet>listOrderDetailetByOrderId(Integer orderId);
+    public List<OrderDetailet> listOrderDetailetByOrderId(Integer orderId);
 }

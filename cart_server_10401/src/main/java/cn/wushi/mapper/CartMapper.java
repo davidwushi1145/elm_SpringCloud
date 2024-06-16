@@ -19,6 +19,7 @@ public interface CartMapper extends BaseMapper<Cart> {
 
     @Select("select * from cart where foodId=#{foodId} and businessId=#{businessId} and userId=#{userId}")
     public Cart getCartById(Integer foodId, Integer businessId, String userId) throws SQLException;
+
     @Update("update cart set quantity=#{quantity} where foodId=#{foodId} and businessId=#{businessId} and userId=#{userId}")
     public int updateCart(Integer businessId, Integer foodId, String userId, Integer quantity) throws SQLException;
 

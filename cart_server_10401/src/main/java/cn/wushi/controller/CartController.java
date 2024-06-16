@@ -17,11 +17,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
+    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
     @Autowired
     private CartService cartService;
     @Autowired
     private UserSupport userSupport;
-    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
 
     @GetMapping("/lists")
     public BaseResponse<List<CartVo>> listCart(

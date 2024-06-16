@@ -27,9 +27,9 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public int saveCart(Integer businessId, String userId,Integer foodId) {
+    public int saveCart(Integer businessId, String userId, Integer foodId) {
         try {
-            return cartMapper.saveCart(businessId, userId,foodId);
+            return cartMapper.saveCart(businessId, userId, foodId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -73,9 +73,9 @@ public class CartServiceImpl implements CartService {
 
     public CartVo getCartVoByID(Integer foodId, Integer businessId, String userId) {
         try {
-            Cart cart = cartMapper.getCartById(businessId,foodId,userId);
+            Cart cart = cartMapper.getCartById(businessId, foodId, userId);
             return getCartVo(cart);
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

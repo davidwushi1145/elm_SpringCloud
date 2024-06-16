@@ -9,9 +9,8 @@ import java.util.*;
 
 public class JWTUtil {
     public static final String SING = "114514";
-    private AESUtil aesUtil; // AES加密工具
-
     private final Map<String, Object> header = new HashMap<String, Object>();
+    private AESUtil aesUtil; // AES加密工具
 
     public JWTUtil() {
         try {

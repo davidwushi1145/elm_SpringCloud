@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 通用返回类
+ *
  * @param <T>
  */
 @Data

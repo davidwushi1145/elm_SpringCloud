@@ -1,12 +1,12 @@
 package cn.wushi.mapper;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import cn.wushi.po.Business;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.sql.SQLException;
+import java.util.List;
 
 @Mapper
 public interface BusinessMapper extends BaseMapper<Business> {

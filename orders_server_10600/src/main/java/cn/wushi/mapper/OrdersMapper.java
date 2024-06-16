@@ -1,7 +1,7 @@
 package cn.wushi.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import cn.wushi.po.Orders;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.*;
 
 import java.sql.SQLException;

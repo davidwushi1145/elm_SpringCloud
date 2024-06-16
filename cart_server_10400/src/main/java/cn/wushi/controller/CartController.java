@@ -1,28 +1,27 @@
 package cn.wushi.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.wushi.common.BaseResponse;
 import cn.wushi.common.ErrorCode;
 import cn.wushi.common.ResultUtils;
 import cn.wushi.common.UserSupport;
+import cn.wushi.exception.BusinessException;
 import cn.wushi.po.CartVo;
 import cn.wushi.service.CartService;
-import cn.wushi.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cart")
 public class CartController {
+    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
     @Autowired
     private CartService cartService;
     @Autowired
     private UserSupport userSupport;
-    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
 
     @GetMapping("/lists")
     public BaseResponse<List<CartVo>> listCart(

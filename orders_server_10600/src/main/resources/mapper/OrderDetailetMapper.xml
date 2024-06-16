@@ -24,7 +24,8 @@
         <result column="quantity" property="quantity"/>
         <result column="businessId" property="businessId"/>
         <association property="food" javaType="Food"
-                     select="cn.wushi.mapper.FoodMapper.getFoodByIdAndBusinessId" column="{foodId=foodId, businessId=businessId}"/>
+                     select="cn.wushi.mapper.FoodMapper.getFoodByIdAndBusinessId"
+                     column="{foodId=foodId, businessId=businessId}"/>
     </resultMap>
 
     <select id="listOrderDetailetByOrderId" parameterType="Integer"

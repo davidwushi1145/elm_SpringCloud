@@ -9,13 +9,13 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @MapperScan({"cn.wushi.mapper"})
 public class BusinessServer10300 {
+    public static void main(String[] args) {
+        SpringApplication.run(BusinessServer10300.class, args);
+    }
+
     //向容器中添加RestTemplate实例
     @Bean
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(BusinessServer10300.class, args);
     }
 }

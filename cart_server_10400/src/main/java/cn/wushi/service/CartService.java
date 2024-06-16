@@ -1,12 +1,13 @@
 package cn.wushi.service;
 
+import cn.wushi.po.CartVo;
+
 import java.util.List;
 
-import cn.wushi.po.CartVo;
 public interface CartService {
     public List<CartVo> listCart(String userId, Integer businessId);
 
-    public int saveCart(Integer businessId, String userId,Integer foodId);
+    public int saveCart(Integer businessId, String userId, Integer foodId);
 
     public int updateCart(Integer businessId, Integer foodId, String userId, Integer quantity);
 

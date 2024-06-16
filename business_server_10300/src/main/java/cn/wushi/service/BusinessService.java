@@ -1,8 +1,8 @@
 package cn.wushi.service;
 
-import java.util.List;
-
 import cn.wushi.po.BusinessVo;
+
+import java.util.List;
 
 public interface BusinessService {
     public List<BusinessVo> listBusinessByOrderTypeId(Integer orderTypeId);

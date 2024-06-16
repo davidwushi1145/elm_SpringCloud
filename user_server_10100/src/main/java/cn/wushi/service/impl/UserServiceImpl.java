@@ -1,15 +1,14 @@
 package cn.wushi.service.impl;
 
 import cn.wushi.common.ErrorCode;
+import cn.wushi.exception.BusinessException;
 import cn.wushi.mapper.UserMapper;
 import cn.wushi.po.User;
 import cn.wushi.po.UserVo;
 import cn.wushi.service.UserService;
-import cn.wushi.exception.BusinessException;
 import cn.wushi.util.JWTUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
