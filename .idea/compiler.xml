@@ -35,5 +35,8 @@
         <module name="virtualwallet_server_10701" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shop_server_13000" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

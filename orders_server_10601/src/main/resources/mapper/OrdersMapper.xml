@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.elm.mapper.OrdersMapper">
+<mapper namespace="cn.wushi.mapper.OrdersMapper">
 
     <resultMap type="Orders" id="ordersResultMap">
         <id column="orderId" property="orderId"/>
@@ -12,10 +12,10 @@
         <result column="daId" property="daId"/>
         <result column="orderState" property="orderState"/>
         <association property="business" javaType="Business"
-                     select="com.elm.mapper.BusinessMapper.getBusinessById"
+                     select="cn.wushi.mapper.BusinessMapper.getBusinessById"
                      column="businessId"/>
         <collection property="list" ofType="OrderDetailet"
-                    select="com.elm.mapper.OrderDetailetMapper.listOrderDetailetByOrderId"
+                    select="cn.wushi.mapper.OrderDetailetMapper.listOrderDetailetByOrderId"
                     column="orderId"/>
     </resultMap>
 

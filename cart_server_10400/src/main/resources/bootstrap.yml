@@ -35,3 +35,8 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+logging:
+  level:
+    com.baomidou.mybatisplus: DEBUG
+    org.apache.ibatis: DEBUG

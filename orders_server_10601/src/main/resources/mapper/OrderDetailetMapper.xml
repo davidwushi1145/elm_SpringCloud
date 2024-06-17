@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.elm.mapper.OrderDetailetMapper">
+<mapper namespace="cn.wushi.mapper.OrderDetailetMapper">
     <insert id="saveOrderDetailetBatch" parameterType="java.util.List">
         <choose>
             <when test="list != null and list.size() > 0">
@@ -24,7 +24,7 @@
         <result column="quantity" property="quantity"/>
         <result column="businessId" property="businessId"/>
         <association property="food" javaType="Food"
-                     select="com.elm.mapper.FoodMapper.getFoodByIdAndBusinessId"
+                     select="cn.wushi.mapper.FoodMapper.getFoodByIdAndBusinessId"
                      column="{foodId=foodId, businessId=businessId}"/>
     </resultMap>
 
