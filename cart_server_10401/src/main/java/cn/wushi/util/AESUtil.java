@@ -26,18 +26,6 @@ public class AESUtil {
         encryptCipher.init(Cipher.ENCRYPT_MODE, key);
     }
 
-    private static class SingletonHelper {
-        private static final AESUtil INSTANCE;
-
-        static {
-            try {
-                INSTANCE = new AESUtil();
-            } catch (Exception e) {
-                throw new RuntimeException("Failed to create AESUtil instance", e);
-            }
-        }
-    }
-
     public static AESUtil getInstance() {
         return SingletonHelper.INSTANCE;
     }
@@ -56,5 +44,17 @@ public class AESUtil {
     private SecretKey getSecretKey(String key) {
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
         return new SecretKeySpec(keyBytes, 0, keyBytes.length, KEY_ALGORITHM);
+    }
+
+    private static class SingletonHelper {
+        private static final AESUtil INSTANCE;
+
+        static {
+            try {
+                INSTANCE = new AESUtil();
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to create AESUtil instance", e);
+            }
+        }
     }
 }
