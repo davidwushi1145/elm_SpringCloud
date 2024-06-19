@@ -49,6 +49,10 @@ spring:
           uri: lb://orders-server
           predicates:
             - Path=/orders/**
+        - id: fileServer
+          uri: lb://file-server
+          predicates:
+            - Path=/file/**
 
 eureka:
   client:

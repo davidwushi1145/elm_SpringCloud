@@ -17,6 +17,8 @@
         <module name="virtualwallettransaction_server_10900" />
         <module name="virtualwallettransaction_server_10901" />
         <module name="business_server_10300" />
+        <module name="file_server_10701" />
+        <module name="file_server_10700" />
         <module name="food_server_10200" />
         <module name="eureka_server_13002" />
         <module name="food_server_10201" />

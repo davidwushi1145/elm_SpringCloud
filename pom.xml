@@ -54,5 +54,7 @@
         <module>gateway_server_14001</module>
         <module>config_server_15000</module>
         <module>config_server_15001</module>
+        <module>file_server_10700</module>
+        <module>file_server_10701</module>
     </modules>
 </project>
