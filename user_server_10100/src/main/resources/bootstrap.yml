@@ -7,6 +7,11 @@ spring:
       name: user_server_10100
       profile: dev
       label: master
+  data:
+    redis:
+      port: 6379
+      host: localhost
+      password:
 
 # springdoc-openapi项目配置
 springdoc:
@@ -37,3 +42,4 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 15
+
