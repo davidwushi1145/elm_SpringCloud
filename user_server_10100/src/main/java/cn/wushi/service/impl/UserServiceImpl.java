@@ -5,6 +5,7 @@ import cn.wushi.exception.BusinessException;
 import cn.wushi.mapper.UserMapper;
 import cn.wushi.po.User;
 import cn.wushi.po.UserVo;
+import cn.wushi.repository.UserRepository;
 import cn.wushi.service.UserService;
 import cn.wushi.util.JWTUtil;
 import org.springframework.beans.BeanUtils;
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @Override
