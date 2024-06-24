@@ -22,7 +22,7 @@ spring:
       default-filters:
         - name: CircuitBreaker
           args:
-            name: fallbackcmd
+            name: backendA
             fallbackUri: forward:/fallback
       routes:
         - id: userServer
@@ -79,3 +79,18 @@ logging:
     org:
       springframework:
         security: DEBUG
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        failure-rate-threshold: 30
+        minimum-number-of-calls: 1
+        sliding-window-type: TIME_BASED
+        sliding-window-size: 10
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 2s
+        permitted-number-of-calls-in-half-open-state: 3
+    instances:
+      backendA:
+        base-config: default
